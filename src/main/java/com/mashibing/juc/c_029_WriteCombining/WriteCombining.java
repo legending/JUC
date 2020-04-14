@@ -1,5 +1,9 @@
 package com.mashibing.juc.c_029_WriteCombining;
 
+/**
+ * runCaseOne巧妙利用了CPU用于合并写的4个Byte
+ */
+
 public final class WriteCombining {
 
     private static final int ITERATIONS = Integer.MAX_VALUE;

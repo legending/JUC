@@ -3,7 +3,7 @@ package com.mashibing.juc.c_018_00_AtomicXXX;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.LongAdder;
 
-public class T03________SyncVsLongAdder {
+public class T03_SyncVsLongAdder {
     static long count2 = 0L;
     static LongAdder count = new LongAdder();
 

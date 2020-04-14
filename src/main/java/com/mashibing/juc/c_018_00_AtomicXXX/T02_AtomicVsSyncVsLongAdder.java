@@ -1,5 +1,11 @@
 package com.mashibing.juc.c_018_00_AtomicXXX;
 
+/*
+* 这三种原子操作方式的效率排序：LongAdder(分段锁) > Atomic(无锁) -> sync(重量级锁)
+* 但这个排序是不固定的，具体要根据不同的并发量(线程数)来实测
+* LongAdder: 使用了分段锁的概念，锁还是自旋锁，在线程数特别多的时候比较有优势
+* */
+
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.LongAdder;

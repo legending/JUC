@@ -29,8 +29,6 @@ public class T08_Semaphore {
                 for (int i = 0; i < 5; i++) {
                     c.add(new Object());
                     System.out.println("add " + i);
-
-
                 }
                 s.release();
             } catch (InterruptedException e) {

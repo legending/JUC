@@ -7,7 +7,7 @@
  * 
  * jetty
  * 
- * @author mashibing
+ *
  */
 package com.mashibing.juc.c_017_MoreAboutSync;
 

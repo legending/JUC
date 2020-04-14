@@ -1,5 +1,12 @@
 package com.mashibing.juc.c_020;
 
+/*
+* 阶段锁
+* 遗传算法里面会用到
+* 从jdk1.7开始有这个类
+* 可以理解为循环的CyclicBarrier
+* */
+
 import java.util.Random;
 import java.util.concurrent.Phaser;
 import java.util.concurrent.TimeUnit;
@@ -7,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 public class T09_TestPhaser2 {
     static Random r = new Random();
     static MarriagePhaser phaser = new MarriagePhaser();
-
 
     static void milliSleep(int milli) {
         try {
@@ -22,18 +28,15 @@ public class T09_TestPhaser2 {
         phaser.bulkRegister(7);
 
         for(int i=0; i<5; i++) {
-
             new Thread(new Person("p" + i)).start();
         }
 
         new Thread(new Person("新郎")).start();
         new Thread(new Person("新娘")).start();
-
     }
 
-
-
     static class MarriagePhaser extends Phaser {
+        //栅栏在推倒的时候自动调用
         @Override
         protected boolean onAdvance(int phase, int registeredParties) {
 
@@ -83,8 +86,6 @@ public class T09_TestPhaser2 {
         public void leave() {
             milliSleep(r.nextInt(1000));
             System.out.printf("%s 离开！\n", name);
-
-
             phaser.arriveAndAwaitAdvance();
         }
 
@@ -95,7 +96,7 @@ public class T09_TestPhaser2 {
                 phaser.arriveAndAwaitAdvance();
             } else {
                 phaser.arriveAndDeregister();
-                //phaser.register()
+                //phaser.register();//加一个人
             }
         }
 
@@ -115,5 +116,3 @@ public class T09_TestPhaser2 {
         }
     }
 }
-
-

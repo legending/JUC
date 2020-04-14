@@ -1,7 +1,7 @@
 package com.mashibing.juc.c_021_03_VarHandle;
 
 import java.lang.invoke.MethodHandles;
-import java.lang.invoke.VarHandle;
+/*import java.lang.invoke.VarHandle;
 
 public class T01_HelloVarHandle {
 
@@ -34,4 +34,4 @@ public class T01_HelloVarHandle {
         System.out.println(t.x);
 
     }
-}
+}*/

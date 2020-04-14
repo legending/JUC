@@ -1,7 +1,9 @@
 /**
  * 解决同样的问题的更高效的方法，使用AtomXXX类
- * AtomXXX类本身方法都是原子性的，但不能保证多个方法连续调用是原子性的
- * @author mashibing
+ * AtomXXX类本身方法都是原子性的，底层使用的是CAS方式，但不能保证多个方法连续调用是原子性的
+ * CAS可能存在ABA问题，但对于基本数据类型不会产生影响，但如果是引用类型则可能出现问题
+ * 如果想解决ABA问题，可以通过加version来解决，如：AtomicStampedReference/AtomicMarkableReference
+ *
  */
 package com.mashibing.juc.c_018_00_AtomicXXX;
 

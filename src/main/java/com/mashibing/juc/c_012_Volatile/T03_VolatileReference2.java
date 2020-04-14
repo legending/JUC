@@ -3,7 +3,7 @@
  */
 package com.mashibing.juc.c_012_Volatile;
 
-public class T03________VolatileReference2 {
+public class T03_VolatileReference2 {
 
     private static class Data {
         int a, b;
@@ -24,7 +24,9 @@ public class T03________VolatileReference2 {
         });
 
         Thread reader = new Thread(()->{
-            while (data == null) {}
+            while (data == null) {
+                System.out.println("reader: data is null");
+            }
             int x = data.a;
             int y = data.b;
             if(x != y) {

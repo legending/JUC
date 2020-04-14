@@ -1,6 +1,6 @@
 /**
  * 对比上面一个小程序，分析一下这个程序的输出
- * @author mashibing
+ *
  */
 
 package com.mashibing.juc.c_006;

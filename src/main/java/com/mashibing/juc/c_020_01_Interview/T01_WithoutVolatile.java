@@ -4,7 +4,7 @@
  * 写两个线程，线程1添加10个元素到容器中，线程2实现监控元素的个数，当个数到5个时，线程2给出提示并结束
  * 
  * 分析下面这个程序，能完成这个功能吗？
- * @author mashibing
+ *
  */
 package com.mashibing.juc.c_020_01_Interview;
 
@@ -51,3 +51,10 @@ public class T01_WithoutVolatile {
 		}, "t2").start();
 	}
 }
+
+
+/*
+* 问题
+* 1. ArrayList线程不安全（在执行size的过程中，可能出现添加元素的操作，那么获取到的size可能会比实际小）
+* 2. lists线程间不可见
+* */

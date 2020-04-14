@@ -11,7 +11,9 @@
  * 阅读下面的程序，并分析输出结果
  * 可以读到输出结果并不是size=5时t2退出，而是t1结束时t2才接收到通知而退出
  * 想想这是为什么？
- * @author mashibing
+ *
+ * notify并不会释放锁，只是告诉调用过wait方法的线程可以去参与当前锁的竞争，不能保证一定得到锁
+ *
  */
 package com.mashibing.juc.c_020_01_Interview;
 

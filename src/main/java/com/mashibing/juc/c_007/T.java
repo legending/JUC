@@ -1,6 +1,6 @@
 /**
  * 同步和非同步方法是否可以同时调用？
- * @author mashibing
+ *
  */
 
 package com.mashibing.juc.c_007;
@@ -15,6 +15,7 @@ public class T {
 			e.printStackTrace();
 		}
 		System.out.println(Thread.currentThread().getName() + " m1 end");
+		//m2();
 	}
 	
 	public void m2() {
@@ -24,6 +25,7 @@ public class T {
 			e.printStackTrace();
 		}
 		System.out.println(Thread.currentThread().getName() + " m2 ");
+		//m1();
 	}
 	
 	public static void main(String[] args) {

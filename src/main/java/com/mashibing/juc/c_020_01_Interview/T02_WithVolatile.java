@@ -6,15 +6,13 @@
  * 给lists添加volatile之后，t2能够接到通知，但是，t2线程的死循环很浪费cpu，如果不用死循环，
  * 而且，如果在if 和 break之间被别的线程打断，得到的结果也不精确，
  * 该怎么做呢？
- * @author mashibing
+ *
  */
 package com.mashibing.juc.c_020_01_Interview;
 
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 
 public class T02_WithVolatile {
 
@@ -37,7 +35,8 @@ public class T02_WithVolatile {
 			for(int i=0; i<10; i++) {
 				c.add(new Object());
 				System.out.println("add " + i);
-				
+
+				//因为sleep的时间很充足读与写之间产生冲突的可能性不大，去掉sleep之后问题依然无法解决
 				/*try {
 					TimeUnit.SECONDS.sleep(1);
 				} catch (InterruptedException e) {
@@ -56,3 +55,12 @@ public class T02_WithVolatile {
 		}, "t2").start();
 	}
 }
+
+/*
+* 发现一个很有意思的现象，当sleep 1秒的时候，lists的size会被同步（线程可见只能保证引用本身可见，但并不能保证引用对象内的属性可见）
+* 所以可以推断，给与足够时间，volatile修饰的引用对应的对象的属性也可能存在可见性
+*
+* 建议
+* 1. 尽量不要使用volatile
+* 2. 如果用的话，尽量只用在基础类型上，不要用在引用类型
+* */

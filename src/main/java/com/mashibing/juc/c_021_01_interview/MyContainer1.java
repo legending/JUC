@@ -4,7 +4,7 @@
  * 
  * 使用wait和notify/notifyAll来实现
  * 
- * @author mashibing
+ *
  */
 package com.mashibing.juc.c_021_01_interview;
 
@@ -12,9 +12,9 @@ import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
 public class MyContainer1<T> {
-	final private LinkedList<T> lists = new LinkedList<>();
+	final private LinkedList<T> lists = new LinkedList<>();//队列存在多个线程同时读写的情况（通过同步方法）
 	final private int MAX = 10; //最多10个元素
-	private int count = 0;
+	private int count = 0;//同队列一样，因为已经通过同步方法来操作了，所以就不需要加volatile了
 	
 	
 	public synchronized void put(T t) {
