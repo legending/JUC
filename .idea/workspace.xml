@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="537745d2-fdf3-45e3-91ce-55d43dfd9027" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mashibing/juc/c_012_Volatile/T01_HelloVolatile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mashibing/juc/c_012_Volatile/T01_HelloVolatile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mashibing/juc/c_021_01_interview/MyContainer1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mashibing/juc/c_021_01_interview/MyContainer1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mashibing/juc/c_021_01_interview/MyContainer2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mashibing/juc/c_021_01_interview/MyContainer2.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,9 +92,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.T01_HelloVolatile">
+  <component name="RunManager" selected="Application.MyContainer1">
     <configuration name="MyContainer1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.mashibing.juc.c_021_01_interview.MyContainer1" />
+      <module name="JUC" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mashibing.juc.c_021_01_interview.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyContainer2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.mashibing.juc.c_021_01_interview.MyContainer2" />
       <module name="JUC" />
       <extension name="coverage">
         <pattern>
@@ -129,19 +145,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="T03_VolatileReference2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.mashibing.juc.c_012_Volatile.T03_VolatileReference2" />
-      <module name="JUC" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.mashibing.juc.c_012_Volatile.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="T08_Semaphore" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.mashibing.juc.c_020_01_Interview.T08_Semaphore" />
       <module name="JUC" />
@@ -156,19 +159,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.T03_VolatileReference2" />
       <item itemvalue="Application.T03_NotifyHoldingLock" />
       <item itemvalue="Application.T08_Semaphore" />
       <item itemvalue="Application.MyContainer1" />
       <item itemvalue="Application.T01_HelloVolatile" />
+      <item itemvalue="Application.MyContainer2" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.T01_HelloVolatile" />
         <item itemvalue="Application.MyContainer1" />
+        <item itemvalue="Application.MyContainer2" />
+        <item itemvalue="Application.T01_HelloVolatile" />
         <item itemvalue="Application.T08_Semaphore" />
         <item itemvalue="Application.T03_NotifyHoldingLock" />
-        <item itemvalue="Application.T03_VolatileReference2" />
       </list>
     </recent_temporary>
   </component>
@@ -192,7 +195,7 @@
       <workItem from="1585808705176" duration="2699000" />
       <workItem from="1585875592730" duration="700000" />
       <workItem from="1586146340571" duration="18205000" />
-      <workItem from="1586340928234" duration="73540000" />
+      <workItem from="1586340928234" duration="86021000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交演示代码">
       <created>1566616292953</created>

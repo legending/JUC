@@ -6,12 +6,12 @@
  * 
  * 使用Lock和Condition来实现
  * 对比两种方式，Condition的方式可以更加精确的指定哪些线程被唤醒
- * 
  *
  */
 package com.mashibing.juc.c_021_01_interview;
 
 import java.util.LinkedList;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -34,6 +34,7 @@ public class MyContainer2<T> {
 			}
 			
 			lists.add(t);
+			System.out.println(t.toString() + " is produced by " + Thread.currentThread().getName());
 			++count;
 			consumer.signalAll(); //通知消费者线程进行消费
 		} catch (InterruptedException e) {
@@ -51,7 +52,8 @@ public class MyContainer2<T> {
 				consumer.await();
 			}
 			t = lists.removeFirst();
-			count --;
+			System.out.println(t.toString() + " is consumed by " + Thread.currentThread().getName());
+			count--;
 			producer.signalAll(); //通知生产者进行生产
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -62,12 +64,14 @@ public class MyContainer2<T> {
 	}
 	
 	public static void main(String[] args) {
-		MyContainer2<String> c = new MyContainer2<>();
+		MyContainer2<String> container = new MyContainer2<>();
 		//启动消费者线程
 		for(int i=0; i<10; i++) {
 			new Thread(()->{
-				for(int j=0; j<5; j++) System.out.println(c.get());
-			}, "c" + i).start();
+				for(int j=0; j<5; j++) {
+					container.get();
+				}
+			}, "consumer-" + i).start();
 		}
 		
 		try {
@@ -79,8 +83,10 @@ public class MyContainer2<T> {
 		//启动生产者线程
 		for(int i=0; i<2; i++) {
 			new Thread(()->{
-				for(int j=0; j<25; j++) c.put(Thread.currentThread().getName() + " " + j);
-			}, "p" + i).start();
+				for(int j=0; j<25; j++) {
+					container.put(Integer.toString(new Random().nextInt(100)));
+				}
+			}, "producer" + i).start();
 		}
 	}
 }

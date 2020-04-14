@@ -13,6 +13,10 @@
  * http://www.cnblogs.com/nexiyi/p/java_memory_model_and_thread.html
  * 
  * volatile并不能保证多个线程共同修改running变量时所带来的不一致问题，也就是说volatile不能替代synchronized
+ * 如果说多个线程同时修改running有可能出现问题
+ *
+ * 另一方面说明一个问题：通过synchronized方法可以解决可见性问题（通过强制刷新工内存与主内存的值来实现，这个跟JMM中关于synchronized的规定有关）
+ * 具体见https://www.cnblogs.com/xuwenjin/p/9044230.html
  *
  */
 package com.mashibing.juc.c_012_Volatile;
