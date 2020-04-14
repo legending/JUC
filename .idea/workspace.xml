@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="537745d2-fdf3-45e3-91ce-55d43dfd9027" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -192,7 +192,7 @@
       <workItem from="1585808705176" duration="2699000" />
       <workItem from="1585875592730" duration="700000" />
       <workItem from="1586146340571" duration="18205000" />
-      <workItem from="1586340928234" duration="72588000" />
+      <workItem from="1586340928234" duration="73540000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交演示代码">
       <created>1566616292953</created>
