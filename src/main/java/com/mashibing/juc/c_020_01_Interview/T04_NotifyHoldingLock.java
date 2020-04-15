@@ -12,20 +12,17 @@
  * 可以读到输出结果并不是size=5时t2退出，而是t1结束时t2才接收到通知而退出
  * 想想这是为什么？
  *
- * notify并不会释放锁，只是告诉调用过wait方法的线程可以去参与当前锁的竞争，不能保证一定得到锁
+ * notify并不会释放锁，只是告诉调用过wait方法的线程可以去参与当前锁的竞争，不能保证一定得到锁 => X
  *
  */
 package com.mashibing.juc.c_020_01_Interview;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
+public class T04_NotifyHoldingLock { //wait notify
 
-public class T03_NotifyHoldingLock { //wait notify
-
-	//添加volatile，使t2能够得到通知
-	volatile List lists = new ArrayList();
+	List lists = new ArrayList();
 
 	public void add(Object o) {
 		lists.add(o);
@@ -36,13 +33,26 @@ public class T03_NotifyHoldingLock { //wait notify
 	}
 	
 	public static void main(String[] args) {
-		T03_NotifyHoldingLock c = new T03_NotifyHoldingLock();
+		T04_NotifyHoldingLock c = new T04_NotifyHoldingLock();
 		
 		final Object lock = new Object();
-		
-		new Thread(() -> {
+
+		Thread t1 = new Thread(() -> {
 			synchronized(lock) {
-				System.out.println("t2启动");
+				for(int i=0; i<10; i++) {
+					c.add(new Object());
+					System.out.println("add " + i);
+
+					if(c.size() == 5) {
+						lock.notify();
+					}
+				}
+			}
+		}, "t1");
+		
+		Thread t2 = new Thread(() -> {
+			synchronized(lock) {
+				System.out.println(c.size());
 				if(c.size() != 5) {
 					try {
 						lock.wait();
@@ -50,37 +60,18 @@ public class T03_NotifyHoldingLock { //wait notify
 						e.printStackTrace();
 					}
 				}
-				System.out.println("t2 结束");
+				System.out.println("5 bingo");
 			}
-			
-		}, "t2").start();
-		
-		try {
-			TimeUnit.SECONDS.sleep(1);
-		} catch (InterruptedException e1) {
-			e1.printStackTrace();
-		}
+		}, "t2");
 
-		new Thread(() -> {
-			System.out.println("t1启动");
-			synchronized(lock) {
-				for(int i=0; i<10; i++) {
-					c.add(new Object());
-					System.out.println("add " + i);
-					
-					if(c.size() == 5) {
-						lock.notify();
-					}
-					
-					try {
-						TimeUnit.SECONDS.sleep(1);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-		}, "t1").start();
-		
-		
+		//先执行t1，后执行t2
+		//t1先start先得到锁，于是打印所有元素，然后t2永久wait，因为在t1运行时t2抢不到锁，当t1结束的时候list.size()早已不是5，所以t2就永久wait了
+		//t1.start();
+		//t2.start();
+
+		//先执行t2，后执行t1
+		//t2先start先得到锁，上来就wait并释放锁，之后t1运行但notify时并未释放锁，所以t1始终得不到锁，直到最后t1运行完毕，t2才得以在wait的位置继续运行
+		t2.start();
+		t1.start();
 	}
 }

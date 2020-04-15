@@ -1,5 +1,13 @@
 package com.mashibing.juc.c_021_02_AQS;
 
+/*
+ * 读源码
+ * debug lock()方法
+ * 由于java的多态特性（继承，实现->子类具体实现与父类的默认实现不一样）静态跟踪到的代码跟debug跟踪到的代码可能不一致
+ *
+ * 画时序图来辅助理解 ->
+ * */
+
 import java.util.concurrent.locks.ReentrantLock;
 
 public class TestReentrantLock {

@@ -5,6 +5,7 @@
  * 
  * 分析下面这个程序，能完成这个功能吗？
  *
+ * 可见性无法保证 => x
  */
 package com.mashibing.juc.c_020_01_Interview;
 
@@ -44,6 +45,7 @@ public class T01_WithoutVolatile {
 		new Thread(() -> {
 			while(true) {
 				if(c.size() == 5) {
+					System.out.println("5 bingo");
 					break;
 				}
 			}

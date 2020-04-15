@@ -1,9 +1,12 @@
 /**
  * volatile 引用类型（包括数组）只能保证引用本身的可见性，不能保证内部字段的可见性
+ * 解决办法，使用AtomicReference
  */
 package com.mashibing.juc.c_012_Volatile;
 
-public class T03_VolatileReference2 {
+import java.util.concurrent.atomic.AtomicReference;
+
+public class T03_VolatileReference3 {
 
     private static class Data {
         int a = 0;
@@ -15,22 +18,22 @@ public class T03_VolatileReference2 {
         }
     }
 
-    volatile static Data data;
-    volatile static int count = 0;
+    volatile static AtomicReference<Data> data = new AtomicReference<>();
+    volatile static int count = 0;//用于确认data已完成首次初始化
 
     public static void main(String[] args) throws InterruptedException {
         Thread writer = new Thread(()->{
             for (int i = 0; i < 100000; i++) {
-                data = new Data(i, i);
+                data.compareAndSet(null, new Data(i, i));
                 count++;
             }
         });
 
         Thread reader = new Thread(()->{
-            while (count<1) {} //即使保证了data!=null
+            while (count<1) {} //确保data!=null
 
-            int x = data.a;
-            int y = data.b;
+            int x = data.get().a;
+            int y = data.get().b;
             if(x != y) {
                 System.out.printf("a = %s, b=%s%n", x, y);
             }

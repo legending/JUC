@@ -15,18 +15,16 @@
  * notify之后，t1必须释放锁，t2退出后，也必须notify，通知t1继续执行
  * 整个通信过程比较繁琐
  *
+ * synchronized实现可见性，t1,t2顺序执行，逆序执行都考虑了 => V
  */
 package com.mashibing.juc.c_020_01_Interview;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
+public class T05_NotifyFreeLock {
 
-public class T04_NotifyFreeLock {
-
-	//添加volatile，使t2能够得到通知
-	volatile List lists = new ArrayList();
+	List lists = new ArrayList();
 
 	public void add(Object o) {
 		lists.add(o);
@@ -37,42 +35,17 @@ public class T04_NotifyFreeLock {
 	}
 	
 	public static void main(String[] args) {
-		T04_NotifyFreeLock c = new T04_NotifyFreeLock();
+		T05_NotifyFreeLock c = new T05_NotifyFreeLock();
 		
 		final Object lock = new Object();
-		
-		new Thread(() -> {
-			synchronized(lock) {
-				System.out.println("t2启动");
-				if(c.size() != 5) {
-					try {
-						lock.wait();
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-				System.out.println("t2 结束");
-				//通知t1继续执行
-				lock.notify();
-			}
-			
-		}, "t2").start();
-		
-		try {
-			TimeUnit.SECONDS.sleep(1);
-		} catch (InterruptedException e1) {
-			e1.printStackTrace();
-		}
 
-		new Thread(() -> {
-			System.out.println("t1启动");
+		Thread t1 = new Thread(() -> {
 			synchronized(lock) {
 				for(int i=0; i<10; i++) {
 					c.add(new Object());
 					System.out.println("add " + i);
-					
 					if(c.size() == 5) {
-						lock.notify();
+						lock.notify();//不要与wait的顺序搞反了
 						//释放锁，让t2得以执行
 						try {
 							lock.wait();
@@ -80,16 +53,28 @@ public class T04_NotifyFreeLock {
 							e.printStackTrace();
 						}
 					}
-					
+				}
+			}
+		}, "t1");
+
+		Thread t2 = new Thread(() -> {
+			synchronized(lock) {
+				if(c.size() != 5) {
 					try {
-						TimeUnit.SECONDS.sleep(1);
+						lock.wait();
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
 				}
+				System.out.println("5 bingo");
+				//通知t1继续执行
+				lock.notify();
 			}
-		}, "t1").start();
-		
-		
+		}, "t2");
+
+		//t1,t2顺序可以颠倒，分析类比T04
+		t2.start();
+		t1.start();
+
 	}
 }
