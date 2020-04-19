@@ -1,6 +1,10 @@
 /**
  * 弱引用遭到gc就会回收
  *
+ * 作用：一般用在容器里
+ *
+ * 课后作业
+ * WeakHashMap是干嘛的？
  */
 package com.mashibing.juc.c_022_RefTypeAndThreadLocal;
 
@@ -14,10 +18,11 @@ public class T03_WeakReference {
         System.gc();
         System.out.println(m.get());
 
-
+        //WeakReference的典型应用ThreadLocal
         ThreadLocal<M> tl = new ThreadLocal<>();
         tl.set(new M());
-        tl.remove();
+        tl.get();
+        tl.remove();//如果ThreadLocal里面的值不用了要清空，否则会造成内存泄漏
 
     }
 }

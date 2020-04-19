@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class T05_VolatileVsSync {
+public class T06_VolatileVsSync {
 	/*volatile*/ int count = 0;
 
 	/*synchronized */void m() {
@@ -20,7 +20,7 @@ public class T05_VolatileVsSync {
 	}
 
 	public static void main(String[] args) {
-		T05_VolatileVsSync t = new T05_VolatileVsSync();
+		T06_VolatileVsSync t = new T06_VolatileVsSync();
 
 		List<Thread> threads = new ArrayList<Thread>();
 

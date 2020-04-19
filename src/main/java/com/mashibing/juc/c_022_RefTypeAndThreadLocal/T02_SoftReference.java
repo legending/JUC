@@ -3,7 +3,8 @@
  * 软引用是用来描述一些还有用但并非必须的对象。
  * 对于软引用关联着的对象，在系统将要发生内存溢出异常之前，将会把这些对象列进回收范围进行第二次回收。
  * 如果这次回收还没有足够的内存，才会抛出内存溢出异常。
- * -Xmx20M
+ *
+ * -Xms20M -Xmx20M
  */
 package com.mashibing.juc.c_022_RefTypeAndThreadLocal;
 
@@ -14,7 +15,7 @@ public class T02_SoftReference {
         SoftReference<byte[]> m = new SoftReference<>(new byte[1024*1024*10]);
         //m = null;
         System.out.println(m.get());
-        System.gc();
+        System.gc();//即使手动清空内存，但内存够依然不会把软引用指向的内存回收
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
@@ -23,7 +24,9 @@ public class T02_SoftReference {
         System.out.println(m.get());
 
         //再分配一个数组，heap将装不下，这时候系统会垃圾回收，先回收一次，如果不够，会把软引用干掉
-        byte[] b = new byte[1024*1024*15];
+        //byte[] b = new byte[1024*1024*5];
+        byte[] b = new byte[1024*1024*12];
+
         System.out.println(m.get());
     }
 }

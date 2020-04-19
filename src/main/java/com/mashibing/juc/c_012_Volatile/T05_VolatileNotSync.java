@@ -8,14 +8,14 @@ package com.mashibing.juc.c_012_Volatile;
 import java.util.ArrayList;
 import java.util.List;
 
-public class T04_VolatileNotSync {
+public class T05_VolatileNotSync {
 	volatile int count = 0;
 	void m() {
 		for(int i=0; i<10000; i++) count++;
 	}
 	
 	public static void main(String[] args) {
-		T04_VolatileNotSync t = new T04_VolatileNotSync();
+		T05_VolatileNotSync t = new T05_VolatileNotSync();
 		
 		List<Thread> threads = new ArrayList<Thread>();
 		

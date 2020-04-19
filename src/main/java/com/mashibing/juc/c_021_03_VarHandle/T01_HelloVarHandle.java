@@ -1,7 +1,11 @@
 package com.mashibing.juc.c_021_03_VarHandle;
 
+/*
+* VarHandle可以直接用对变量执行CAS操作（原子操作），比反射快（因为直接操作二进制码）
+* */
+
 import java.lang.invoke.MethodHandles;
-/*import java.lang.invoke.VarHandle;
+/*import java.lang.invoke.VarHandle; //VarHandle是jdk1.9之后才有的
 
 public class T01_HelloVarHandle {
 
