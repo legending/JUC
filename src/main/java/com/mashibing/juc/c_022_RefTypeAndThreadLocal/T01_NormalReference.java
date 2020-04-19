@@ -1,8 +1,7 @@
 package com.mashibing.juc.c_022_RefTypeAndThreadLocal;
 
 /*
-* 强、软、弱、虚引用
-*
+* java中的四种引用：强、软、弱、虚引用
 * 我们正常使用的是强引用
 * */
 
