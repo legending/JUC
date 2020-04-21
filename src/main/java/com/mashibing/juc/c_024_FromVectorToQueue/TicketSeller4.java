@@ -12,7 +12,7 @@
  * 就算操作A和B都是同步的，但A和B组成的复合操作也未必是同步的，仍然需要自己进行同步
  * 就像这个程序，判断size和进行remove必须是一整个的原子操作
  * 
- * 使用ConcurrentQueue提高并发性
+ * 使用ConcurrentQueue提高并发性 -> 使用的是CAS操作
  * 
  * @author 马士兵
  */

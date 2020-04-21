@@ -2,10 +2,7 @@
  * 写时复制容器 copy on write
  * 多线程环境下，写时效率低，读时效率高
  * 适合写少读多的环境
- * 
- * 
- * 
- * @author 马士兵
+ *
  */
 package com.mashibing.juc.c_025;
 
@@ -21,7 +18,7 @@ public class T02_CopyOnWriteList {
 		List<String> lists = 
 				//new ArrayList<>(); //这个会出并发问题！
 				//new Vector();
-				new CopyOnWriteArrayList<>();
+				new CopyOnWriteArrayList<>(); //写时复制：用于写的少，读的多的情况（因为写时需要复制当前数组，所以写比较多的情况效率很低）
 		Random r = new Random();
 		Thread[] ths = new Thread[100];
 		

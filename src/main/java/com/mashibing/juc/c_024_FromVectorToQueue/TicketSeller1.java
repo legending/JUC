@@ -26,8 +26,8 @@ public class TicketSeller1 {
 	public static void main(String[] args) {
 		for(int i=0; i<10; i++) {
 			new Thread(()->{
-				while(tickets.size() > 0) {
-					System.out.println("销售了--" + tickets.remove(0));
+				while(tickets.size() > 0) { //此处存在并发问题
+					System.out.println("销售了--" + tickets.remove(0));//remove不是原子操作
 				}
 			}).start();
 		}

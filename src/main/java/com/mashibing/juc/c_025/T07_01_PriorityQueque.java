@@ -1,5 +1,9 @@
 package com.mashibing.juc.c_025;
 
+/*
+* 底层结构是二叉树
+* */
+
 import java.util.PriorityQueue;
 
 public class T07_01_PriorityQueque {

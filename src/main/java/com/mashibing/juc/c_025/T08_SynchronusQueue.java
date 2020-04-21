@@ -1,5 +1,10 @@
 package com.mashibing.juc.c_025;
 
+/*
+* 容量为0，不能往里面装东西，只有当线程来take时才会装东西
+* 用途：两个线程直接传递数据->线程相互调度
+* */
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.SynchronousQueue;
 

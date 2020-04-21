@@ -1,5 +1,10 @@
 package com.mashibing.juc.c_025;
 
+/*
+* DelayQueue也是blocking queue的一种
+* 一般用于控制线程执行顺序（按时间调度任务）
+* */
+
 import java.util.Calendar;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;

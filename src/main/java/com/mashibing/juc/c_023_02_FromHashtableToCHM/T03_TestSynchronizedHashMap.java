@@ -1,5 +1,11 @@
 package com.mashibing.juc.c_023_02_FromHashtableToCHM;
 
+/*
+* 通过Collections将HashMap变成线程安全的，但是任然使用的是synchronized，
+* 只不过锁的粒度变小了（HashTable是直接把synchronized加在方法前面），
+* 而Collections.synchronizedMap生成的map中是使用synchronized(mutex){}
+* */
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,6 +45,7 @@ public class T03_TestSynchronizedHashMap {
 
     public static void main(String[] args) {
 
+        //测试写效率
         long start = System.currentTimeMillis();
 
         Thread[] threads = new Thread[THREAD_COUNT];
@@ -67,6 +74,7 @@ public class T03_TestSynchronizedHashMap {
 
         //-----------------------------------
 
+        //测试读效率
         start = System.currentTimeMillis();
         for (int i = 0; i < threads.length; i++) {
             threads[i] = new Thread(()->{

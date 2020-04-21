@@ -1,5 +1,12 @@
 package com.mashibing.juc.c_023_02_FromHashtableToCHM;
 
+/*
+* ConcurrentHashMap写的效率相对于HashTable,SynchronizedHashMap效率会低很多，因为有很多CAS判断在里面
+* 关于效率的问题，一定要结合实际的应用场景实际测试
+*
+* 通过读测试（HashTable,SynchronizedHashMap,ConcurrentHashMap），发现ConcurrentHashMap的读效率非常高（本机测试是另外两种的20倍左右）
+* */
+
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -66,6 +73,7 @@ public class T04_TestConcurrentHashMap {
 
         //-----------------------------------
 
+        //测试读效率
         start = System.currentTimeMillis();
         for (int i = 0; i < threads.length; i++) {
             threads[i] = new Thread(()->{

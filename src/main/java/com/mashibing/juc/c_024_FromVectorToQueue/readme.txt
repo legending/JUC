@@ -12,3 +12,6 @@ http://blog.csdn.net/itm_hadf/article/details/7506529
 http://xuganggogo.iteye.com/blog/321630
 
 5：
+
+多线程，高并发使用容器的时候，多考虑Concurrent相关的容器，以及Queue
+面向接口编程：接口里只体现业务逻辑相关的东西，根据不同的情况（如并发量）使用不同实现

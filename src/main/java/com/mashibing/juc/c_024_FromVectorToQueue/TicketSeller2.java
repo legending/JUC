@@ -27,7 +27,7 @@ public class TicketSeller2 {
 		
 		for(int i=0; i<10; i++) {
 			new Thread(()->{
-				while(tickets.size() > 0) {
+				while(tickets.size() > 0) {//此处判断存在并发问题
 					
 					try {
 						TimeUnit.MILLISECONDS.sleep(10);

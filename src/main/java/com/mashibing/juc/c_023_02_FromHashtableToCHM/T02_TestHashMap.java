@@ -1,5 +1,9 @@
 package com.mashibing.juc.c_023_02_FromHashtableToCHM;
 
+/*
+* 不是线程安全的，最后的size不是1000000
+* */
+
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -37,6 +41,7 @@ public class T02_TestHashMap {
 
     public static void main(String[] args) {
 
+        //测试写效率
         long start = System.currentTimeMillis();
 
         Thread[] threads = new Thread[THREAD_COUNT];

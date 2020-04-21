@@ -1,7 +1,7 @@
 ﻿总结：
 1：对于map/set的选择使用
 HashMap
-TreeMap
+TreeMap 使用了红黑树
 LinkedHashMap
 
 Hashtable

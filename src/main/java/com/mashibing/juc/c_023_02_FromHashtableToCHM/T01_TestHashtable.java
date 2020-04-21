@@ -1,5 +1,10 @@
 package com.mashibing.juc.c_023_02_FromHashtableToCHM;
 
+/*
+* HashTable所有的方法都是带锁（synchronized）的，是Java1.0遗留下来的，现在基本不用
+* Vector跟HashTable的性质类似，所有的方法都是带锁的，所以现在基本都不用
+* */
+
 import java.util.Hashtable;
 import java.util.UUID;
 
@@ -37,6 +42,7 @@ public class T01_TestHashtable {
 
     public static void main(String[] args) {
 
+        //测试写效率
         long start = System.currentTimeMillis();
 
         Thread[] threads = new Thread[THREAD_COUNT];
@@ -65,6 +71,7 @@ public class T01_TestHashtable {
 
         //-----------------------------------
 
+        //测试读效率
         start = System.currentTimeMillis();
         for (int i = 0; i < threads.length; i++) {
             threads[i] = new Thread(()->{

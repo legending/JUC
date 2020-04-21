@@ -12,7 +12,7 @@ import java.util.concurrent.CountDownLatch;
 
 public class T01_ConcurrentMap {
 	public static void main(String[] args) {
-		Map<String, String> map = new ConcurrentHashMap<>();
+		Map<String, String> map = new ConcurrentHashMap<>();//支持并发操作
 		//Map<String, String> map = new ConcurrentSkipListMap<>(); //高并发并且排序
 		
 		//Map<String, String> map = new Hashtable<>();
