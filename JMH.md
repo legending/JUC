@@ -60,7 +60,7 @@
 4. 定义需要测试类PS (ParallelStream)
 
    ```java
-   package com.mashibing.jmh;
+   package com.legend.jmh.jmh;
    
    import java.util.ArrayList;
    import java.util.List;
@@ -96,7 +96,7 @@
    > 这个测试类一定要在test package下面
    >
    > ```java
-   > package com.mashibing.jmh;
+   > package com.legend.jmh.jmh;
    > 
    > import org.openjdk.jmh.annotations.Benchmark;
    > 
@@ -140,6 +140,9 @@
    测试哪一段代码
 
 ## Next
+
+demo
+https://www.jianshu.com/p/c9186119f3d1
 
 官方样例：
 http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/

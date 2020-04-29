@@ -34,7 +34,7 @@ Disruptor是数组实现的
 
 RingBuffer的序号，指向下一个可用的元素
 
-采用数组实现，没有首尾指针
+采用数组实现，没有首尾指针，只有一个sequence(用于记录写的位置，读的位置是内部处理的，读源码)
 
 对比ConcurrentLinkedQueue，用数组实现的速度更快
 
@@ -132,7 +132,7 @@ try {
 ## 使用Lamda表达式
 
 ```java
-package com.mashibing.disruptor;
+package com.legend.disruptor;
 
 import com.lmax.disruptor.RingBuffer;
 import com.lmax.disruptor.dsl.Disruptor;
@@ -191,7 +191,7 @@ public class Main03
 
 7，（常用）YieldingWaitStrategy：尝试100次，然后Thread.yield()让出cpu
 
-8. （常用）SleepingWaitStrategy : sleep
+8，（常用）SleepingWaitStrategy : sleep
 
 ## 消费者异常处理
 
