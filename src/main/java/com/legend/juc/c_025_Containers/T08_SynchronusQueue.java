@@ -1,4 +1,4 @@
-package com.legend.juc.c_025;
+package com.legend.juc.c_025_Containers;
 
 /*
 * 容量为0，不能往里面装东西，只有当线程来take时才会装东西

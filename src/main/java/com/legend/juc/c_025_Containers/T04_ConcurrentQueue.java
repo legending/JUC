@@ -1,4 +1,4 @@
-package com.legend.juc.c_025;
+package com.legend.juc.c_025_Containers;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;

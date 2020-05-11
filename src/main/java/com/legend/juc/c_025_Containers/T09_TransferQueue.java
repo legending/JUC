@@ -1,4 +1,4 @@
-package com.legend.juc.c_025;
+package com.legend.juc.c_025_Containers;
 
 /*
 * 线程put完之后，会等在那里，直到消息被取走，线程才会继续执行
