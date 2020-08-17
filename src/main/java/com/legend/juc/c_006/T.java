@@ -1,5 +1,5 @@
 /**
- * 对比上面一个小程序，分析一下这个程序的输出
+ * 瀵规瘮涓婇潰涓�涓皬绋嬪簭锛屽垎鏋愪竴涓嬭繖涓▼搴忕殑杈撳嚭
  *
  */
 
@@ -7,17 +7,21 @@ package com.legend.juc.c_006;
 
 public class T implements Runnable {
 
-	private int count = 10;
+	private volatile int count = 100;
 	
-	public synchronized void run() { 
+	public synchronized void run() {
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		count--;
 		System.out.println(Thread.currentThread().getName() + " count = " + count);
 	}
 	
 	public static void main(String[] args) {
-		
-		for(int i=0; i<5; i++) {
-			T t = new T();
+		T t = new T();
+		for(int i=0; i<100; i++) {
 			new Thread(t, "THREAD" + i).start();
 		}
 	}
