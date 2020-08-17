@@ -1,12 +1,12 @@
 /**
- * reentrantlockÓÃÓÚÌæ´úsynchronized
- * ±¾ÀýÖÐÓÉÓÚm1Ëø¶¨this,Ö»ÓÐm1Ö´ÐÐÍê±ÏµÄÊ±ºò,m2²ÅÄÜÖ´ÐÐ
- * ÕâÀïÊÇ¸´Ï°synchronized×îÔ­Ê¼µÄÓïÒå
- * synchronized±¾ÉíÒ²ÊÇ¿ÉÖØÈëËø
- * ¿ÉÖØÈë£ºÒ»¸öÏß³Ì³ÖÓÐÄ³¸ö¶ÔÏóµÄËø£¬µ±Õâ¸öÏß³ÌÔÙ´ÎÇëÇóÕâ¸öËøµÄÊ±ºò£¬¿ÉÒÔÔÙ´ÎÄÃµ½Õâ¸öËø£¬Èç£ºÆäÊµ¾ÍÊÇÒ»¸öÍ¬²½·½·¨Àï¿ÉÒÔµ÷ÓÃÁíÒ»¸öÍ¬²½·½·¨
+ * reentrantlockï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½synchronized
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½m1ï¿½ï¿½ï¿½ï¿½this,Ö»ï¿½ï¿½m1Ö´ï¿½ï¿½ï¿½ï¿½Ïµï¿½Ê±ï¿½ï¿½,m2ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½Ï°synchronizedï¿½ï¿½Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * synchronizedï¿½ï¿½ï¿½ï¿½Ò²ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ë£ºÒ»ï¿½ï¿½ï¿½ß³Ì³ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½Ù´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ò£¬¿ï¿½ï¿½ï¿½ï¿½Ù´ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£ºï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
  */
-package com.legend.juc.c_020;
+package com.legend.juc.c_020_Locks;
 
 import java.util.concurrent.TimeUnit;
 
@@ -40,7 +40,7 @@ public class T01_ReentrantLock1 {
 	}
 }
 
-//synchronized·½·¨ÊÇ¿ÉÒÔ±»¼Ì³ÐµÄ
+//synchronizedï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½Ô±ï¿½ï¿½Ì³Ðµï¿½
 class AA extends T01_ReentrantLock1 {
 	public static void main(String[] args) {
 		new AA().m1();

@@ -1,10 +1,10 @@
 /**
- * Ê¹ÓÃReentrantLock»¹¿ÉÒÔµ÷ÓÃlockInterruptibly·½·¨£¬¿ÉÒÔ¶ÔÏß³Ìinterrupt·½·¨×ö³öÏìÓ¦£¬
- * ÔÚÒ»¸öÏß³ÌµÈ´ýËøµÄ¹ý³ÌÖÐ£¬¿ÉÒÔ±»´ò¶Ï
+ * Ê¹ï¿½ï¿½ReentrantLockï¿½ï¿½ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½lockInterruptiblyï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ß³ï¿½interruptï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½
+ * ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ß³ÌµÈ´ï¿½ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½
  * 
  *
  */
-package com.legend.juc.c_020;
+package com.legend.juc.c_020_Locks;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
@@ -17,7 +17,7 @@ public class T04_ReentrantLock4 {
 		
 		Thread t1 = new Thread(()->{
 			try {
-				lock.lockInterruptibly();//¿ÉÒÔ¶Ôinterrupt()·½·¨×ö³öÏìÓ¦
+				lock.lockInterruptibly();//ï¿½ï¿½ï¿½Ô¶ï¿½interrupt()ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦
 				System.out.println("t1 start");
 				TimeUnit.SECONDS.sleep(100);
 				System.out.println("t1 end");
@@ -49,7 +49,7 @@ public class T04_ReentrantLock4 {
 			e.printStackTrace();
 		}
 		System.out.println("Interrupt t1");
-		t1.interrupt(); //´ò¶ÏÏß³Ì1µÄµÈ´ý
+		t1.interrupt(); //ï¿½ï¿½ï¿½ï¿½ß³ï¿½1ï¿½ÄµÈ´ï¿½
 		
 	}
 }
