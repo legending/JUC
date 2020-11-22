@@ -1,8 +1,8 @@
 /**
- * reentrantlockÓÃÓÚÌæ´úsynchronized
- * Ê¹ÓÃreentrantlock¿ÉÒÔÍê³ÉÍ¬ÑùµÄ¹¦ÄÜ
- * ÐèÒª×¢ÒâµÄÊÇ£¬±ØÐëÒª±ØÐëÒª±ØÐëÒªÊÖ¶¯ÊÍ·ÅËø£¨ÖØÒªµÄÊÂÇéËµÈý±é£©
- * Ê¹ÓÃsynËø¶¨µÄ»°Èç¹ûÓöµ½Òì³££¬jvm»á×Ô¶¯ÊÍ·ÅËø£¬µ«ÊÇlock±ØÐëÊÖ¶¯ÊÍ·ÅËø£¬Òò´Ë¾­³£ÔÚfinallyÖÐ½øÐÐËøµÄÊÍ·Å
+ * reentrantlockï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½synchronized
+ * Ê¹ï¿½ï¿½reentrantlockï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½
+ * ï¿½ï¿½Òª×¢ï¿½ï¿½ï¿½ï¿½Ç£ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Òªï¿½Ö¶ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½é£©
+ * Ê¹ï¿½ï¿½synï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½jvmï¿½ï¿½ï¿½Ô¶ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½lockï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½ï¿½finallyï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½
  *
  */
 package com.legend.juc.c_020_Locks;

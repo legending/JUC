@@ -1,5 +1,5 @@
 /**
- * 分析一下这个程序的输出
+ * 鍒嗘瀽涓�涓嬭繖涓▼搴忕殑杈撳嚭
  *
  */
 
@@ -7,9 +7,14 @@ package com.legend.juc.c_005;
 
 public class T implements Runnable {
 
-	private /*volatile*/ int count = 100;
+	private int count = 100;
 	
-	public /*synchronized*/ void run() { 
+	public void run() {
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		count--;
 		System.out.println(Thread.currentThread().getName() + " count = " + count);
 	}

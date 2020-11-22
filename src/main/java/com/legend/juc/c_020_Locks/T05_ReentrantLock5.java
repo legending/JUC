@@ -1,6 +1,6 @@
 /**
- * ReentrantLock»¹¿ÉÒÔÖ¸¶¨Îª¹«Æ½Ëø£¬ÄÇ¸öÏß³ÌÏÈÀ´ÏÈÖ´ÐÐÄÄ¸ö
- * synchronizedÖ»ÓÐ²»¹«Æ½Ëø£¬Ë­ÇÀµ½ÊÇË­µÄ
+ * ReentrantLockï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Îªï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½Ä¸ï¿½
+ * synchronizedÖ»ï¿½Ð²ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½Ë­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë­ï¿½ï¿½
  *
  */
 package com.legend.juc.c_020_Locks;
@@ -10,12 +10,12 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class T05_ReentrantLock5 extends Thread {
 		
-	private static ReentrantLock lock=new ReentrantLock(true); //²ÎÊýÎªtrue±íÊ¾Îª¹«Æ½Ëø£¬Çë¶Ô±ÈÊä³ö½á¹û
+	private static ReentrantLock lock=new ReentrantLock(true); //ï¿½ï¿½ï¿½ï¿½Îªtrueï¿½ï¿½Ê¾Îªï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public void run() {
         for(int i=0; i<100; i++) {
             lock.lock();
             try{
-                System.out.println(Thread.currentThread().getName()+"»ñµÃËø");
+                System.out.println(Thread.currentThread().getName()+"ï¿½ï¿½ï¿½ï¿½ï¿½");
             }finally{
                 lock.unlock();
             }
