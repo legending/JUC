@@ -5,7 +5,7 @@
  * 使用syn锁定的话如果遇到异常，jvm会自动释放锁，但是lock必须手动释放锁，因此经常在finally中进行锁的释放
  *
  */
-package com.legend.juc.c_020;
+package com.legend.juc.c_020_Locks;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;

@@ -1,4 +1,4 @@
-package com.legend.juc.c_020;
+package com.legend.juc.c_020_Locks;
 
 /*
 * ½×¶ÎËø

@@ -3,7 +3,7 @@
  * synchronized只有不公平锁，谁抢到是谁的
  *
  */
-package com.legend.juc.c_020;
+package com.legend.juc.c_020_Locks;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;

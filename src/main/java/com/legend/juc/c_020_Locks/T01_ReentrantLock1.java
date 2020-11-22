@@ -6,7 +6,7 @@
  * 可重入：一个线程持有某个对象的锁，当这个线程再次请求这个锁的时候，可以再次拿到这个锁，如：其实就是一个同步方法里可以调用另一个同步方法
  *
  */
-package com.legend.juc.c_020;
+package com.legend.juc.c_020_Locks;
 
 import java.util.concurrent.TimeUnit;
 

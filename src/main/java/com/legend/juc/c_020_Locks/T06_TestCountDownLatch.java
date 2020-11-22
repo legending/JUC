@@ -1,4 +1,4 @@
-package com.legend.juc.c_020;
+package com.legend.juc.c_020_Locks;
 
 /*
 * 倒计时锁，等待所有线程完成在执行后续的操作，有点儿类似每个线程都join

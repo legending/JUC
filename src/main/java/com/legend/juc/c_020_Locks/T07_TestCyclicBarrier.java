@@ -1,4 +1,4 @@
-package com.legend.juc.c_020;
+package com.legend.juc.c_020_Locks;
 
 /*
 * 单个栅栏，人满推倒
