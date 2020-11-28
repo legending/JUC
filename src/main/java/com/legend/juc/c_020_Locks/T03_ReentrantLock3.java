@@ -1,5 +1,5 @@
 /**
- * ʹ��reentrantlock���Խ��С�����������tryLock�������޷�������������ָ��ʱ�����޷��������߳̿��Ծ����Ƿ�����ȴ�
+ * 使用reentrantlock可以进行“尝试锁定”tryLock，这样无法锁定，或者在指定时间内无法锁定，线程可以决定是否继续等待
  *
  */
 package com.legend.juc.c_020_Locks;
@@ -27,9 +27,9 @@ public class T03_ReentrantLock3 {
 	}
 
 	/**
-	 * ʹ��tryLock���г�������������������񣬷�����������ִ��
-	 * ���Ը���tryLock�ķ���ֵ���ж��Ƿ�����
-	 * Ҳ����ָ��tryLock��ʱ�䣬����tryLock(time)�׳��쳣������Ҫע��unclock�Ĵ�������ŵ�finally��
+	 * 使用tryLock进行尝试锁定，不管锁定与否，方法都将继续执行
+	 * 可以根据tryLock的返回值来判定是否锁定
+	 * 也可以指定tryLock的时间，由于tryLock(time)抛出异常，所以要注意unclock的处理，必须放到finally中
 	 */
 	void m2() {
 		/*

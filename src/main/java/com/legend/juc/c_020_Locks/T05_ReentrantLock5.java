@@ -1,6 +1,6 @@
 /**
- * ReentrantLock������ָ��Ϊ��ƽ�����Ǹ��߳�������ִ���ĸ�
- * synchronizedֻ�в���ƽ����˭������˭��
+ * ReentrantLock可以指定为公平锁，哪个线程先来哪个线程先获得锁
+ * synchronized只有不公平锁，谁抢到是谁的
  *
  */
 package com.legend.juc.c_020_Locks;
@@ -10,12 +10,13 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class T05_ReentrantLock5 extends Thread {
 		
-	private static ReentrantLock lock=new ReentrantLock(true); //����Ϊtrue��ʾΪ��ƽ������Ա�������
+	private static ReentrantLock lock=new ReentrantLock(true); //参数为true表示为公平锁，请对比输出结果
+	//private static ReentrantLock lock=new ReentrantLock(); //无参，默认为非公平锁
     public void run() {
         for(int i=0; i<100; i++) {
             lock.lock();
             try{
-                System.out.println(Thread.currentThread().getName()+"�����");
+                System.out.println(Thread.currentThread().getName()+"获得锁");
             }finally{
                 lock.unlock();
             }

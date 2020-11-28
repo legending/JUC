@@ -1,11 +1,11 @@
 package com.legend.juc.c_020_Locks;
 
 /*
-* �׶���
-* �Ŵ��㷨������õ�
-* ��jdk1.7��ʼ�������
-* �������Ϊѭ����CyclicBarrier
-* */
+ * 阶段锁
+ * 遗传算法里面会用到
+ * 从jdk1.7开始有这个类
+ * 可以理解为循环的CyclicBarrier
+ * */
 
 import java.util.Random;
 import java.util.concurrent.Phaser;
@@ -31,30 +31,30 @@ public class T09_TestPhaser2 {
             new Thread(new Person("p" + i)).start();
         }
 
-        new Thread(new Person("����")).start();
-        new Thread(new Person("����")).start();
+        new Thread(new Person("新郎")).start();
+        new Thread(new Person("新娘")).start();
     }
 
     static class MarriagePhaser extends Phaser {
-        //դ�����Ƶ���ʱ���Զ�����
+        //栅栏在推倒的时候自动调用
         @Override
         protected boolean onAdvance(int phase, int registeredParties) {
 
             switch (phase) {
                 case 0:
-                    System.out.println("�����˵����ˣ�" + registeredParties);
+                    System.out.println("所有人到齐了！" + registeredParties);
                     System.out.println();
                     return false;
                 case 1:
-                    System.out.println("�����˳����ˣ�" + registeredParties);
+                    System.out.println("所有人吃完了！" + registeredParties);
                     System.out.println();
                     return false;
                 case 2:
-                    System.out.println("�������뿪�ˣ�" + registeredParties);
+                    System.out.println("所有人离开了！" + registeredParties);
                     System.out.println();
                     return false;
                 case 3:
-                    System.out.println("����������������ﱧ����" + registeredParties);
+                    System.out.println("婚礼结束！新郎新娘抱抱！" + registeredParties);
                     return true;
                 default:
                     return true;
@@ -73,30 +73,30 @@ public class T09_TestPhaser2 {
         public void arrive() {
 
             milliSleep(r.nextInt(1000));
-            System.out.printf("%s �����ֳ���\n", name);
+            System.out.printf("%s 到达现场！\n", name);
             phaser.arriveAndAwaitAdvance();
         }
 
         public void eat() {
             milliSleep(r.nextInt(1000));
-            System.out.printf("%s ����!\n", name);
+            System.out.printf("%s 吃完!\n", name);
             phaser.arriveAndAwaitAdvance();
         }
 
         public void leave() {
             milliSleep(r.nextInt(1000));
-            System.out.printf("%s �뿪��\n", name);
+            System.out.printf("%s 离开！\n", name);
             phaser.arriveAndAwaitAdvance();
         }
 
         private void hug() {
-            if(name.equals("����") || name.equals("����")) {
+            if(name.equals("新郎") || name.equals("新娘")) {
                 milliSleep(r.nextInt(1000));
-                System.out.printf("%s ������\n", name);
+                System.out.printf("%s 洞房！\n", name);
                 phaser.arriveAndAwaitAdvance();
             } else {
                 phaser.arriveAndDeregister();
-                //phaser.register();//��һ����
+                //phaser.register();//加一个人
             }
         }
 

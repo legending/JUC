@@ -1,12 +1,13 @@
 package com.legend.juc.c_020_Locks;
 
 /*
-* ����դ���������Ƶ�
-* �ȴ��̴߳չ�ָ����������ִ����һ���̣߳��е���� �ͳ���Ա�ŷ���
-* ����������һ���߳���ʼ��û�дﵽָ�������������һֱ�ȴ�
-* ע��await�����������߳�
-* ʹ�ó�����һ�����ӵĲ�����Ҫ����̲߳���ȥ����ֻ�е������̶߳�ִ����֮�����ִ�к����Ĳ���
-* */
+ * 单个栅栏，人满推倒
+ * 等待线程凑够指定数量后再执行这一批线程，有点儿像 客车满员才发车
+ * 所以如果最后一次线程数始终没有达到指定数量，程序会一直等待
+ * 注意await不会阻塞主线程
+ * 使用场景：一个复杂的操作需要多个线程并发去做，只有当所有线程都执行完之后才能执行后续的操作
+ * */
+
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
@@ -16,16 +17,16 @@ public class T07_TestCyclicBarrier {
 
         //CyclicBarrier barrier = new CyclicBarrier(20);
 
-        CyclicBarrier barrier = new CyclicBarrier(20, () -> System.out.println("����"));
+        CyclicBarrier barrier = new CyclicBarrier(20, () -> System.out.println("满人"));
 
         /*CyclicBarrier barrier = new CyclicBarrier(20, new Runnable() {
             @Override
             public void run() {
-                System.out.println("���ˣ�����");
+                System.out.println("满人，发车");
             }
         });*/
 
-        for(int i=0; i<99; i++) {
+        for(int i=0; i<99; i++) {//当前为99，线程会一直等待，应为凑不齐最后一波的20个，如果换为100,则会顺利执行完所有的线程
                 new Thread(()->{
                     try {
                         barrier.await();

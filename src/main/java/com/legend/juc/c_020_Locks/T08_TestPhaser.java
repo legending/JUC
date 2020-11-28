@@ -45,14 +45,14 @@ public class T08_TestPhaser {
 
             switch (phase) {
                 case 0:
-                    System.out.println("�����˵����ˣ�");
+                    System.out.println("所有人到齐了！");
                     return false;
                 case 1:
-                    System.out.println("�����˳����ˣ�");
+                    System.out.println("所有人吃完了！");
                     return false;
                 case 2:
-                    System.out.println("�������뿪�ˣ�");
-                    System.out.println("���������");
+                    System.out.println("所有人离开了！");
+                    System.out.println("婚礼结束！");
                     return true;
                 default:
                     return true;
@@ -70,20 +70,21 @@ public class T08_TestPhaser {
 
         public void arrive() {
             milliSleep(r.nextInt(1000));
-            System.out.printf("%s �����ֳ���\n", name);
+            System.out.printf("%s 到达现场！\n", name);
         }
 
         public void eat() {
             milliSleep(r.nextInt(1000));
-            System.out.printf("%s ����!\n", name);
+            System.out.printf("%s 吃完!\n", name);
         }
 
         public void leave() {
             milliSleep(r.nextInt(1000));
-            System.out.printf("%s �뿪��\n", name);
+            System.out.printf("%s 离开！\n", name);
         }
 
     }
 }
+
 
 
