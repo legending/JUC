@@ -2,6 +2,8 @@
  * synchronized关键字
  * 对某个对象加锁
  *
+ * synchronized(obj)只对当前对象有效
+ * synchronized(*.class)代码块的作用其实和synchronized static方法作用一样，Class锁对类的所有对象实例起作用。
  */
 
 package com.legend.juc.c_004;

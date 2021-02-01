@@ -3,6 +3,7 @@ package com.legend.juc.c_018_01_Unsafe;
 /*
 * Unsafe类让程序员拥有了像C语言一样直接操作内存的能力
 * allocateMemory, putXxx, freeMemory, pageSize
+* jdk1.8已经不允许了
 * */
 //import sun.misc.*;
 
